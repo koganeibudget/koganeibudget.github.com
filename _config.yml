@@ -1,6 +1,6 @@
 safe: true
 source: .
-destination: ./_site
+destination: ./_layouts
 lsi: false
 pygments: true
 
