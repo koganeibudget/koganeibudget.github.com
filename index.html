@@ -1,69 +1,98 @@
-<!DOCTYPE html>
-<html>
+---
+layout: default
+title: The Daily Bread
+---
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Koganeibudget.github.com : Where does my money go for Koganei" />
+<script>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+yepnope({
+  load: [
+    // 'http://wheredoesmymoneygo.org/wp-content/themes/wdmmg/wdmmg.css',
+    'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/ui-lightness/jquery-ui.css',
+    'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js',
+    '/js/libs/base64.js',
+    '/js/libs/underscore.js',
+    '/js/libs/raphael-min.js',
+    '/js/aggregator.js',
+    '/css/dailybread.css',
+    '/js/setting.js?20120707',
+    '/js/dailybread.js?20120707'
+  ],
+  complete: function() {
 
-    <title>Koganeibudget.github.com</title>
-  </head>
+    (function ($) {
 
-  <body>
+      $(function () {
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/koganeibudget">View on GitHub</a>
+        $('#preloader .txt').html('loading data');
 
-          <h1 id="project_title">Koganeibudget.github.com</h1>
-          <h2 id="project_tagline">Where does my money go for Koganei</h2>
+       var db = new OpenSpending.DailyBread($('#dailybread'));
+       new OpenSpending.Aggregator({
+           apiUrl: 'http://openspending.org/api',
+           //localApiCache: 'aggregate.json',
+           dataset: OpenSpending.identifier,
+           drilldowns: ['Category', 'Subcategory'],
+           cuts: ['year:' + OpenSpending.year],
+           rootNodeLabel: 'Total',
+           breakdown: 'Category',
+           callback: function(data) {
 
-        </header>
+            $('#content-wrap').show();
+            $('#preloader').remove();
+
+            db.setDataFromAggregator(data, ['unknown']);
+            db.setIconLookup(function(name) {
+              var style = OpenSpending.Styles.Cofog[name];
+              if (style != undefined) {
+               return style['icon'];
+              }
+              return 'icons/unknown.svg';
+            });
+            db.draw();
+           }
+        });
+
+        OpenSpending.renderDependentTypes(db);
+      });
+    })(jQuery)
+  }
+});
+
+
+</script>
+
+<div id="dailybread">
+  <!--
+  <h2 class="page-header">The Daily Bread <small> Costs for the British Taxpayer per Day</small></h2>
+  -->
+  <div>
+    <h2 style="width:240px;display:inline-block;vertical-align:top;">あなたの世帯タイプは？</h2>
+    <div id="select-dependents-type" style="width:450px;display:inline-block;">
+      <div class="single">単身世帯</div>
+      <div class="family">扶養有り</div>
     </div>
+    <br style="clear:both;">
+  </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>俺のゼニはどこ行った for 小金井</h1>
+  <div id="preloader" style="text-align: center; padding: 100px"><img src="img/ajax-loader.gif" style="vertical-align:top" /> &nbsp;<span class="txt">loading javascript libraries</span></div>
 
-<p>wheredoesmymoney.orgの東京都小金井市バージョンです．</p>
+  <div id="content-wrap" style="display:none">
+    <div id="db-topbar" class="layout-row layout-3col-15-70-15">
+     <div id="db-salary" class="layout-col layout-col-1">
+      <h2>年収</h2>
+      <p>&yen;4,000,000</p>
+     </div>
 
-<p>横浜バージョンから派生しました。</p>
+     <div id="db-slider" class="layout-col layout-col-2">
+      <h2>あなたの年間収入を選んでください</h2>
+      <div class="wdmmg-slider"></div>
+     </div>
 
-<p>データ・ソースは <a href="http://openspending.org/jptokyokoganeibudget">http://openspending.org/jptokyokoganeibudget</a></p>
-
-<p>Core Team: (@は Twitter Account)</p>
-
-<p>及川 卓也(Takuya Oikawa), <a href="https://github.com/takoratta" class="user-mention">@takoratta</a></p>
-
-<p>このソースコードは、Open Definition(<a href="http://opendefinition.org/">http://opendefinition.org/</a>) の定義に沿っていれば、どなたでも利用、改変、及び再配布が可能です。
-<a href="http://qiita.com/items/38c186efbd272ef59121">http://qiita.com/items/38c186efbd272ef59121</a>
-に、このソースコードを Fork して独自のサイトを作る為のドキュメントがありますので、是非ご自由にお使いください。
-あなたのサイトを作成したら、是非御連絡や Pull Request をいただければと思います。</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-371491-5");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-
-  </body>
-</html>
+     <div id="db-tax" class="layout-col layout-col-3">
+      <h2>あなた小金井市税（年間）</h2>
+      <p>&yen;31.12</p>
+     </div>
+    </div><!-- /#db-topbar -->
+  </div>
+  あなたの市税は、1日当たり、どこで、いくら使われているか？
+</div><!-- /#dailybread -->
