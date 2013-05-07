@@ -8,6 +8,7 @@
 /*jshint undef: true, browser:true, jquery: true, devel: true, smarttabs: true */
 /*global Raphael, TWEEN, vis4, vis4color, vis4loader */
 
+
 var BubbleTree = function(config, onHover, onUnHover) {
 
   var me = this;
