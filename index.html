@@ -1,99 +1,69 @@
----
-layout: default
-title: The Daily Bread
----
+<!DOCTYPE html>
+<html>
 
-<script>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Koganeibudget.github.com : Where does my money go for Koganei" />
 
-yepnope({
-  load: [
-    // 'http://wheredoesmymoneygo.org/wp-content/themes/wdmmg/wdmmg.css',
-    'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/ui-lightness/jquery-ui.css',
-    'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js',
-    '/js/libs/base64.js',
-    '/js/libs/underscore.js',
-    '/js/libs/raphael-min.js',
-    '/js/aggregator.js',
-    '/css/dailybread.css',
-    '/js/setting.js?20120707',
-    '/js/dailybread.js?20120707'
-  ],
-  complete: function() {
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    (function ($) {
+    <title>Koganeibudget.github.com</title>
+  </head>
 
-      $(function () {
+  <body>
 
-        $('#preloader .txt').html('loading data');
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/koganeibudget">View on GitHub</a>
 
-       var db = new OpenSpending.DailyBread($('#dailybread'));
-       new OpenSpending.Aggregator({
-           apiUrl: 'http://openspending.org/api',
-           //localApiCache: 'aggregate.json',
-           dataset: OpenSpending.identifier,
-           drilldowns: ['Category', 'Subcategory'],
-           cuts: ['year:' + OpenSpending.year],
-           rootNodeLabel: 'Total',
-           breakdown: 'Category',
-           callback: function(data) {
+          <h1 id="project_title">Koganeibudget.github.com</h1>
+          <h2 id="project_tagline">Where does my money go for Koganei</h2>
 
-            $('#content-wrap').show();
-            $('#preloader').remove();
-
-            db.setDataFromAggregator(data, ['unknown']);
-            db.setIconLookup(function(name) {
-              var style = OpenSpending.Styles.Cofog[name];
-              if (style != undefined) {
-               return style['icon'];
-              }
-              return 'icons/unknown.svg';
-            });
-            db.draw();
-           }
-        });
-
-        OpenSpending.renderDependentTypes(db);
-      });
-    })(jQuery)
-  }
-});
-
-
-</script>
-
-<div id="dailybread">
-  <!--
-  <h2 class="page-header">The Daily Bread <small> Costs for the British Taxpayer per Day</small></h2>
-  -->
-  <div>
-    <h2 style="width:240px;display:inline-block;vertical-align:top;">あなたの世帯タイプは？</h2>
-    <div id="select-dependents-type" style="width:450px;display:inline-block;">
-      <div class="single">単身世帯</div>
-      <div class="family">扶養有り</div>
+        </header>
     </div>
-    <br style="clear:both;">
-  </div>
 
-  <div id="preloader" style="text-align: center; padding: 100px"><img src="img/ajax-loader.gif" style="vertical-align:top" /> &nbsp;<span class="txt">loading javascript libraries</span></div>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>Welcome to GitHub Pages.</h3>
 
-  <div id="content-wrap" style="display:none">
-    <div id="db-topbar" class="layout-row layout-3col-15-70-15">
-     <div id="db-salary" class="layout-col layout-col-1">
-      <h2>年収</h2>
-      <p>&yen;4,000,000</p>
-     </div>
+<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
 
-     <div id="db-slider" class="layout-col layout-col-2">
-      <h2>あなたの年間収入を選んでください</h2>
-      <div class="wdmmg-slider"></div>
-     </div>
+<pre><code>$ cd your_repo_root/repo_name
+$ git fetch origin
+$ git checkout gh-pages
+</code></pre>
 
-     <div id="db-tax" class="layout-col layout-col-3">
-      <h2>あなたの横浜市税（年間）</h2>
-      <p>&yen;31.12</p>
-     </div>
-    </div><!-- /#db-topbar -->
-  </div>
-  あなたの市税は、1日当たり、どこで、いくら使われているか？
-</div><!-- /#dailybread -->
+<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
 
+<h3>Designer Templates</h3>
+
+<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+
+<h3>Rather Drive Stick?</h3>
+
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>Authors and Contributors</h3>
+
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
