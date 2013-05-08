@@ -19,12 +19,12 @@ OpenSpending.Styles.Cofog = {
 
   /* koganei cofog */
   '1': { icon: 'icons/legislative.svg', color: '#D15008', bcolor: '#935B3B' }, // 議会費
-  '101': { icon: 'icons/civilian-action.svg.svg', color: '#D15008', bcolor: '#935B3B' }, // 議会費 議会費
+  '101': { icon: 'icons/legislative.svg.svg', color: '#D15008', bcolor: '#935B3B' }, // 議会費 議会費
   '2': { icon: 'icons/publicaffairs.svg', color: '#D15008', bcolor: '#935B3B' }, // 総務費
   '201': { icon: 'icons/planning.svg', color: '#D15008', bcolor: '#935B3B' }, // 総務費 総務管理費
   '202': { icon: 'icons/financial-admin.svg', color: '#D15008', bcolor: '#935B3B' }, // 総務費 微税費
   '203': { icon: 'icons/rd-order-safety.svg', color: '#D15008', bcolor: '#935B3B' }, // 総務費 戸籍住民基本台帳費
-  '204': { icon: 'icons/election.svg', color: '#D15008', bcolor: '#935B3B' }, // 総務費 選挙費
+  '204': { icon: 'icons/family2.svg', color: '#D15008', bcolor: '#935B3B' }, // 総務費 選挙費
   '205': { icon: 'icons/research.svg', color: '#D15008', bcolor: '#935B3B' }, // 総務費 統計調査費
   '206': { icon: 'icons/courts.svg', color: '#D15008', bcolor: '#935B3B' }, // 総務費 監査委員費
   '3': { icon: 'icons/family.svg', color: '#D15008', bcolor: '#935B3B' }, // 民生費
@@ -41,14 +41,14 @@ OpenSpending.Styles.Cofog = {
   '601': { icon: 'icons/civilian-action.svg', color: '#D15008', bcolor: '#935B3B' }, // 農林水産費 農業費
   '7': { icon: 'icons/traffic-watersup.svg', color: '#D15008', bcolor: '#935B3B' }, // 商工費
   '701': { icon: 'icons/traffic-watersup.svg', color: '#D15008', bcolor: '#935B3B' }, // 商工費 商工費
-  '8': { icon: 'icons/government.svg', color: '#D15008', bcolor: '#935B3B' }, // 土木費
+  '8': { icon: 'icons/coal.svg', color: '#D15008', bcolor: '#935B3B' }, // 土木費
   '801': { icon: 'icons/publicaffairs.svg', color: '#D15008', bcolor: '#935B3B' }, // 土木費 土木管理費
-  '802': { icon: 'icons/government.svg', color: '#D15008', bcolor: '#935B3B' }, // 土木費 道路橋りょう費
+  '802': { icon: 'icons/farms.svg', color: '#D15008', bcolor: '#935B3B' }, // 土木費 道路橋りょう費
   '803': { icon: 'icons/government.svg', color: '#D15008', bcolor: '#935B3B' }, // 土木費 河川費
-  '804': { icon: 'icons/government.svg', color: '#D15008', bcolor: '#935B3B' }, // 土木費 都市計画費
-  '805': { icon: 'icons/government.svg', color: '#D15008', bcolor: '#935B3B' }, // 土木費 住宅費
-  '9': { icon: 'icons/garbage.svg', color: '#D15008', bcolor: '#935B3B' }, // 消防費
-  '901': { icon: 'icons/garbage.svg', color: '#D15008', bcolor: '#935B3B' }, // 消防費 消防費
+  '804': { icon: 'icons/government-uk.svg', color: '#D15008', bcolor: '#935B3B' }, // 土木費 都市計画費
+  '805': { icon: 'icons/housing.svg', color: '#D15008', bcolor: '#935B3B' }, // 土木費 住宅費
+  '9': { icon: 'icons/order-safety.svg', color: '#D15008', bcolor: '#935B3B' }, // 消防費
+  '901': { icon: 'icons/order-safety.svg', color: '#D15008', bcolor: '#935B3B' }, // 消防費 消防費
   '10': { icon: 'icons/schools.svg', color: '#D15008', bcolor: '#935B3B' }, // 教育費
   '1001': { icon: 'icons/education.svg', color: '#D15008', bcolor: '#935B3B' }, // 教育費 教育総労務費
   '1002': { icon: 'icons/pre-school.svg', color: '#D15008', bcolor: '#935B3B' },  // 教育費 小学校費
