@@ -19,7 +19,7 @@ OpenSpending.Styles.Cofog = {
 
   /* koganei cofog */
   '1': { icon: 'icons/legislative.svg', color: '#D15008', bcolor: '#935B3B' }, // 議会費
-  '101': { icon: 'icons/legislative.svg.svg', color: '#D15008', bcolor: '#935B3B' }, // 議会費 議会費
+  '101': { icon: 'icons/legislative.svg', color: '#D15008', bcolor: '#935B3B' }, // 議会費 議会費
   '2': { icon: 'icons/publicaffairs.svg', color: '#D15008', bcolor: '#935B3B' }, // 総務費
   '201': { icon: 'icons/planning.svg', color: '#D15008', bcolor: '#935B3B' }, // 総務費 総務管理費
   '202': { icon: 'icons/financial-admin.svg', color: '#D15008', bcolor: '#935B3B' }, // 総務費 微税費
